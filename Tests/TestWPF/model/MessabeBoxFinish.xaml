@@ -5,9 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestWPF.model"
         mc:Ignorable="d"
-         Title="Почта успешно отправлена!" Height="214" Width="389">
+         Title="Почта успешно отправлена!" Height="214" Width="389" FontSize="16" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Background="#FFD4DFFB">
+    <Window.LayoutTransform>
+        <TransformGroup>
+            <ScaleTransform/>
+            <SkewTransform/>
+            <RotateTransform/>
+            <TranslateTransform X="400" Y="175"/>
+        </TransformGroup>
+    </Window.LayoutTransform>
     <Grid>
-        <TextBlock Text="Отправка почты" Margin="0,34,74,0" HorizontalAlignment="Right" Width="190" Height="35" VerticalAlignment="Top" />
-        <Button x:Name="ExsitOk" Content="Ok" Margin="0,79,154,0" Foreground="#FF1125F0" Click="ExitClickButton" Height="60" VerticalAlignment="Top" HorizontalAlignment="Right" Width="115"/>
+
+        <TextBlock Text="Отправка почты" Margin="0,49,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" />
+        <Button x:Name="ExsitOk" Content="Ok" Margin="0,79,5,0" Foreground="#FF1125F0" Click="ExitClickButton" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Width="115" FontSize="22" Grid.Column="2"/>
     </Grid>
 </Window>

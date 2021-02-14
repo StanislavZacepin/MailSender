@@ -35,7 +35,7 @@ namespace TestWPF.model
         public MessabeBoxError(MainWindow form ,string TextHide, string Body)
         {
             HeadWindow.Title = TextHide;
-            BodyWindow.Text = Body;
+            BodyWindow.Content = Body;
             form.Hide();
             InitializeComponent();
             f = form;

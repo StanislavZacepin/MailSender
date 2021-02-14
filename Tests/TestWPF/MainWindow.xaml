@@ -25,7 +25,7 @@
             <TextBlock HorizontalAlignment="Right" Margin="0,123,600,0" Text="Имя пользователя" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <TextBlock HorizontalAlignment="Right" Margin="0,169,600,0" Text="Пароль" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
             <PasswordBox x:Name="PasswordEdit" HorizontalAlignment="Right" Margin="0,194,600,0" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="Login" HorizontalAlignment="Right" Margin="0,143,595,0" Text="Ведите Логин" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Height="16"/>
+            <TextBox x:Name="Login" HorizontalAlignment="Right" Margin="0,143,595,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Height="25"/>
             <TextBox x:Name="textBody" Margin="0,159,260,0" Text="Текст писма" Height="152" VerticalAlignment="Top" HorizontalAlignment="Right" Width="280"/>
             <TextBlock Text="Тема Письма" Margin="0,66,360,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75"/>
             <TextBox x:Name="textSubject" Text="Заголовок" Margin="0,94,260,0" TextAlignment="Center" Height="22" VerticalAlignment="Top" HorizontalAlignment="Right" Width="280"/>
