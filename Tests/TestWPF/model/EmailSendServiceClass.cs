@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Mail;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,8 +25,20 @@ namespace TestWPF.model
                 };
                 client.EnableSsl = true;
                 client.Timeout = 1000;
-             
+            try
+            {
                 client.Send(message);
+                MessageBox.Show("Почта успешно отправлена!", "Отправка почты", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (SmtpException)  
+            {
+                MessageBox.Show("Ошибка авторизации", "Ошибка отпрвки почты", MessageBoxButton.OK, MessageBoxImage.Error);
+                
+            }
+            catch(TimeoutException)
+            {
+                MessageBox.Show("Ошибка адреса сервера", "Ошибка отправки почты", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             }
 
         }
