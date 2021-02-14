@@ -14,8 +14,7 @@ namespace TestWPF.model
         public static MailAddress to = new MailAddress("olsher258@mail.ru", "Стас");
         #endregion
         
-        public static string Subject = "Заголовок";
-        public static string Body = "Текст писма";
+       
 
     }
 }

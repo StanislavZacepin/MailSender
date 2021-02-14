@@ -6,17 +6,18 @@ using System.Windows.Controls;
 
 
 
+
 namespace TestWPF.model
 {
-    
-        public class EmailSendServiceClass
+    delegate void Close();
+        public class EmailSendServiceClass 
         {
-            public EmailSendServiceClass(string Login, PasswordBox Password )
+            public EmailSendServiceClass(string Login, PasswordBox Password,string Subject, string Body, MainWindow main )
             {
                
                 var message = new MailMessage(WpfTestMailSender.From, WpfTestMailSender.to); 
-                message.Subject = WpfTestMailSender.Subject;
-                message.Body = WpfTestMailSender.Body;
+                message.Subject = Subject;
+                message.Body = Body;
                 var client = new SmtpClient(WpfTestMailSender.AdresServer, WpfTestMailSender.portServer);
                 client.Credentials = new NetworkCredential
                   {
@@ -28,16 +29,21 @@ namespace TestWPF.model
             try
             {
                 client.Send(message);
-                MessageBox.Show("Почта успешно отправлена!", "Отправка почты", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessabeBoxFinish messabeBoxFinish = new MessabeBoxFinish(main);
+                messabeBoxFinish.Show();
             }
             catch (SmtpException)  
             {
-                MessageBox.Show("Ошибка авторизации", "Ошибка отпрвки почты", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessabeBoxError messabeBoxError = new MessabeBoxError(main);
+                messabeBoxError.Show();
                 
+
             }
             catch(TimeoutException)
             {
-                MessageBox.Show("Ошибка адреса сервера", "Ошибка отправки почты", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessabeBoxError messabeBoxError = new MessabeBoxError(main, "Ошибка адреса сервера", "Ошибка отправки почты");
+                messabeBoxError.Show();
+                
             }
             }
 

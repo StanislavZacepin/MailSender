@@ -6,12 +6,31 @@
         xmlns:local="clr-namespace:TestWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="Отправить" HorizontalAlignment="Left" Margin="345,254,0,0" VerticalAlignment="Top" Height="55" Width="100" Click="SendButtonClick"/>
-        <TextBlock HorizontalAlignment="Left" Margin="75,66,0,0" Text="Имя пользователя" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="635,66,0,0" Text="Пароль" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="PasswordEdit" HorizontalAlignment="Left" Margin="635,139,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Login" HorizontalAlignment="Left" Margin="80,143,0,0" Text="Ведите Логин" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Height="16"/>
 
-    </Grid>
+    <DockPanel >
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Создать"/>
+                <MenuItem Header="Открыть"/>
+                <MenuItem Header="Сохранить"/>
+                <MenuItem Header="Закрыть"/>
+                <Separator/>
+                <MenuItem Header="Выход" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Сервис"></MenuItem>
+            <MenuItem Header="Справка"></MenuItem>
+        </Menu>
+        <Grid>
+            <Button Content="Отправить" HorizontalAlignment="Right" Margin="0,324,345,0" VerticalAlignment="Top" Height="55" Width="100" Click="SendButtonClick"/>
+            <TextBlock HorizontalAlignment="Right" Margin="0,123,600,0" Text="Имя пользователя" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBlock HorizontalAlignment="Right" Margin="0,169,600,0" Text="Пароль" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <PasswordBox x:Name="PasswordEdit" HorizontalAlignment="Right" Margin="0,194,600,0" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="Login" HorizontalAlignment="Right" Margin="0,143,595,0" Text="Ведите Логин" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" Height="16"/>
+            <TextBox x:Name="textBody" Margin="0,159,260,0" Text="Текст писма" Height="152" VerticalAlignment="Top" HorizontalAlignment="Right" Width="280"/>
+            <TextBlock Text="Тема Письма" Margin="0,66,360,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Right" Width="75"/>
+            <TextBox x:Name="textSubject" Text="Заголовок" Margin="0,94,260,0" TextAlignment="Center" Height="22" VerticalAlignment="Top" HorizontalAlignment="Right" Width="280"/>
+            <TextBlock Text="Содержания Письма" Margin="0,129,349,0" HorizontalAlignment="Right" Width="116" Height="22" VerticalAlignment="Top"/>
+        </Grid>
+    </DockPanel>
+
 </Window>
