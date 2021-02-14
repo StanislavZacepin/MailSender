@@ -1,15 +1,17 @@
-﻿using System.Net.Mail;
+﻿using System.Net;
+using System.Net.Mail;
+using TestConsole.model;
 
 namespace TestConsole.model
 {
     public static class WpfTestMailSender
     {
         public static string AdresServer = "smtp.yandex.ru";
-        public  static int portServer = 465;
-        public static string UserName = "sadasd";
-        public static string Pasword = "sfdsf";
+        public  static int portServer = 25;
+        public static string UserName = "фывфывфыв";
+        public static string Pasword = "ывавыавыа";
         #region MailAdress
-        public static MailAddress From = new MailAddress("olsher92@mail.ru", "Стас");
+        public static MailAddress From = new MailAddress("yaolsher@yandex.ru", "Стас");
         public static MailAddress to = new MailAddress("olsher258@mail.ru", "Стас");
         #endregion
         
