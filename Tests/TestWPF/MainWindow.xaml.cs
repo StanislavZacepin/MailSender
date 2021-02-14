@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TestWPF.model;
 
 namespace TestWPF
 {
@@ -22,7 +23,14 @@ namespace TestWPF
     {
         public MainWindow()
         {
+            
             InitializeComponent();
+        }
+
+      
+        private void SendButtonClick(object sender, RoutedEventArgs e)
+        {
+            EmailSendServiceClass emailSendServiceClass = new EmailSendServiceClass(Login.Text, PasswordEdit);
         }
     }
 }
