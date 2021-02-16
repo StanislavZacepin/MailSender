@@ -10,31 +10,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TestWPF.model;
 
-namespace TestWPF
+namespace TestWPF.model
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для MessabeBoxFinish.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MessabeBoxFinish : Window
     {
-        public MainWindow()
+        private MainWindow f { get; set; }
+        public MessabeBoxFinish()
         {
-            
             InitializeComponent();
         }
-
-      
-        private void SendButtonClick(object sender, RoutedEventArgs e)
+        public MessabeBoxFinish(MainWindow form)
         {
-            EmailSendServiceClass emailSendServiceClass = new EmailSendServiceClass(Login.Text, PasswordEdit,textSubject.Text,textBody.Text,this);
+            form.Hide();
+            InitializeComponent();
+            f = form;
         }
-
-        private void Exit_Click(object sender, RoutedEventArgs e)
+        private void ExitClickButton(object sender, RoutedEventArgs e)
         {
+            f.Show();
             Close();
         }
     }

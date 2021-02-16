@@ -1,0 +1,22 @@
+﻿<Window x:Class="TestWPF.model.MessabeBoxError"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestWPF.model"
+        mc:Ignorable="d"
+        Title="Ошибка авторизации " x:Name="HeadWindow" Height="214" Width="389" Background="#FFF0DDDD" FontSize="15" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+    <Window.LayoutTransform>
+        <TransformGroup>
+            <ScaleTransform/>
+            <SkewTransform/>
+            <RotateTransform/>
+            <TranslateTransform X="400" Y="175"/>
+        </TransformGroup>
+    </Window.LayoutTransform>
+    <Grid>
+
+        <Label x:Name="BodyWindow" Content="Ошибка отпрвки почты" Margin="92,29,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FF1D1B1B" AutomationProperties.Name="" FontSize="20" />
+        <Button x:Name="ExsitOk" Content="Ok" Margin="50,50,50,50" Foreground="#FFF01111" Click="ExitClickButton" Height="60" VerticalAlignment="Center" HorizontalAlignment="Center" Width="115" Grid.ColumnSpan="2" Grid.Column="1" FontSize="22"/>
+    </Grid>
+</Window>

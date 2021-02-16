@@ -1,12 +1,20 @@
 ﻿using System;
+using System.Net;
+using System.Net.Mail;
+using TestConsole.model;
 
 namespace TestConsole
 {
-    class Program
+    partial class Program
     {
+        
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+           
+            EmailSendServiceClass emailSendServiceClass = new EmailSendServiceClass();
+            
+
         }
     }
 }
