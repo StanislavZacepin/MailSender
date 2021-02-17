@@ -6,12 +6,13 @@ namespace TestWPF.model
 {
     public static class WpfTestMailSender
     {
-        public static string AdresServer = "smtp.yandex.ru";
-        public  static int portServer = 25;
-       
+        public static string AdresServer { get;  } = "smtp.yandex.ru";
+        public static int PortServer { get; } = 25;
+
+
         #region MailAdress
-        public static MailAddress From = new MailAddress("yaolsher@yandex.ru", "Стас");
-        public static MailAddress to = new MailAddress("olsher258@mail.ru", "Стас");
+        public static MailAddress FromSend { get; set; }
+        public static MailAddress ToSend { get; set; }
         #endregion
         
        

@@ -20,7 +20,7 @@ namespace TestWPF.model
     /// </summary>
     public partial class MessabeBoxError : Window
     {
-        private MainWindow f { get; set; }
+        private MainWindow FormError { get; set; }
         public MessabeBoxError()
         {
             InitializeComponent();
@@ -28,21 +28,27 @@ namespace TestWPF.model
 
         public MessabeBoxError(MainWindow form)
         {
-            form.Hide();
+            FormError = form;
             InitializeComponent();
-            f = form;
+            EnabledFrom();
         }
         public MessabeBoxError(MainWindow form ,string TextHide, string Body)
         {
+            FormError = form;
             HeadWindow.Title = TextHide;
             BodyWindow.Content = Body;
-            form.Hide();
+            
             InitializeComponent();
-            f = form;
+            EnabledFrom();
+        }
+
+        private void EnabledFrom()
+        {
+            FormError.Hide();
         }
         private void ExitClickButton(object sender, RoutedEventArgs e)
         {
-            f.Show();
+            FormError.Show(); 
             Close();
         }
     }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -21,16 +22,24 @@ namespace TestWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        EmailSendServiceClass emailSendServiceClass;
+       
         public MainWindow()
-        {
-            
+        {  
             InitializeComponent();
+            WpfTestMailSender.FromSend = new MailAddress("yaolsher@yandex.ru");
+            WpfTestMailSender.ToSend = new MailAddress("olsher92@mail.ru");
+              emailSendServiceClass = new EmailSendServiceClass();
+            emailSendServiceClass.MainForm = this;
+
         }
 
       
         private void SendButtonClick(object sender, RoutedEventArgs e)
         {
-            EmailSendServiceClass emailSendServiceClass = new EmailSendServiceClass(Login.Text, PasswordEdit,textSubject.Text,textBody.Text,this);
+            emailSendServiceClass.Subject = textSubject.Text;
+            emailSendServiceClass.Body = textBody.Text;           
+            emailSendServiceClass.MailSend(Login.Text, PasswordEdit);
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)

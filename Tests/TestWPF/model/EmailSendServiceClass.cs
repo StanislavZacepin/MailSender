@@ -10,42 +10,55 @@ using System.Windows.Controls;
 namespace TestWPF.model
 {
     delegate void Close();
-        public class EmailSendServiceClass 
+    public class EmailSendServiceClass
+    {
+        public MailMessage Message { get; set; }
+        public SmtpClient client { get; set; }
+
+        public string Login { get; set; }
+
+        public PasswordBox Password { get; set; }
+
+        public MainWindow MainForm { get; set; }
+
+        public string Subject { get; set; }
+        public string Body { get; set; }
+        public EmailSendServiceClass()
         {
-            public EmailSendServiceClass(string Login, PasswordBox Password,string Subject, string Body, MainWindow main )
+            Message = new MailMessage(WpfTestMailSender.FromSend, WpfTestMailSender.ToSend);           
+            client = new SmtpClient(WpfTestMailSender.AdresServer, WpfTestMailSender.PortServer);           
+        }
+        public void  MailSend(string Login, PasswordBox Password)
+        {
+            Message.Subject = Subject;
+            Message.Body = Body;
+            client.Credentials = new NetworkCredential
             {
-               
-                var message = new MailMessage(WpfTestMailSender.From, WpfTestMailSender.to); 
-                message.Subject = Subject;
-                message.Body = Body;
-                var client = new SmtpClient(WpfTestMailSender.AdresServer, WpfTestMailSender.portServer);
-                client.Credentials = new NetworkCredential
-                  {
-                     UserName = Login,
-                     SecurePassword = Password.SecurePassword
-                };
-                client.EnableSsl = true;
-                client.Timeout = 1000;
+                UserName = Login,
+                SecurePassword = Password.SecurePassword
+            };
+            client.EnableSsl = true;
+            client.Timeout = 1000;
             try
             {
-                client.Send(message);
-                MessabeBoxFinish messabeBoxFinish = new MessabeBoxFinish(main);
+                client.Send(Message);
+                MessabeBoxFinish messabeBoxFinish = new MessabeBoxFinish(MainForm);
                 messabeBoxFinish.Show();
             }
             catch (SmtpException)  
             {
-                MessabeBoxError messabeBoxError = new MessabeBoxError(main);
+                MessabeBoxError messabeBoxError = new MessabeBoxError(MainForm);
                 messabeBoxError.Show();
                 
 
             }
             catch(TimeoutException)
             {
-                MessabeBoxError messabeBoxError = new MessabeBoxError(main, "Ошибка адреса сервера", "Ошибка отправки почты");
-                messabeBoxError.Show();
-                
+                MessabeBoxError messabeBoxError = new MessabeBoxError(MainForm, "Ошибка адреса сервера", "Ошибка отправки почты");
+                 messabeBoxError.Show();                
             }
-            }
-
         }
+    }
 }
+
+

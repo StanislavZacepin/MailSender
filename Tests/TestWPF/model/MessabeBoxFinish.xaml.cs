@@ -19,7 +19,7 @@ namespace TestWPF.model
     /// </summary>
     public partial class MessabeBoxFinish : Window
     {
-        private MainWindow f { get; set; }
+        private MainWindow FormFinishSend { get; set; }
         public MessabeBoxFinish()
         {
             InitializeComponent();
@@ -28,12 +28,13 @@ namespace TestWPF.model
         {
             form.Hide();
             InitializeComponent();
-            f = form;
+            FormFinishSend = form;
         }
         private void ExitClickButton(object sender, RoutedEventArgs e)
         {
-            f.Show();
+            FormFinishSend.Show(); // не понял как его реализововвать owner . не стал пока дальше разбераться так как после завтра с вами урок а я к дз даже не приблизился . исправлял ошибки на которые вы указали 
             Close();
         }
     }
+
 }
