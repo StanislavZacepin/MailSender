@@ -22,29 +22,10 @@ namespace TestWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        EmailSendServiceClass emailSendServiceClass;
        
-        public MainWindow()
-        {  
-            InitializeComponent();
-            WpfTestMailSender.FromSend = new MailAddress("yaolsher@yandex.ru");
-            WpfTestMailSender.ToSend = new MailAddress("olsher92@mail.ru");
-              emailSendServiceClass = new EmailSendServiceClass();
-            emailSendServiceClass.MainForm = this;
 
-        }
+        public MainWindow() => InitializeComponent();
 
-      
-        private void SendButtonClick(object sender, RoutedEventArgs e)
-        {
-            emailSendServiceClass.Subject = textSubject.Text;
-            emailSendServiceClass.Body = textBody.Text;           
-            emailSendServiceClass.MailSend(Login.Text, PasswordEdit);
-        }
-
-        private void Exit_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
-        }
+        private void Exit_Click(object sender, RoutedEventArgs e) => Close();
     }
 }
