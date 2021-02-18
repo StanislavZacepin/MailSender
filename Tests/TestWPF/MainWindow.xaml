@@ -6,6 +6,29 @@
         xmlns:local="clr-namespace:TestWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Выход" Click="Exit_Click"/>
+            </MenuItem>
+            <MenuItem Header="Справка">
+                <MenuItem Header="Помощь"/>
+                <Separator/>
+                <MenuItem Header="О программе"/>
+            </MenuItem>
+        </Menu>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem DockPanel.Dock="Right">
+                <ResizeGrip/>
+            </StatusBarItem>
+            <StatusBarItem Content="Хорошего дня!"/>
+        </StatusBar>
+        <TabControl>
+            <TabItem Header="Списки"/>
+            <TabItem Header="Планировщик"/>
+            <TabItem Header="Письма"/>
+            <TabItem Header="Статистика"/>
+        </TabControl>
+    </DockPanel>
    
 </Window>

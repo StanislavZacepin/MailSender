@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TestWPF.model;
+
 
 namespace TestWPF
 {
@@ -22,8 +22,6 @@ namespace TestWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-       
-
         public MainWindow() => InitializeComponent();
 
         private void Exit_Click(object sender, RoutedEventArgs e) => Close();
