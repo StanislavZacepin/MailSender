@@ -30,9 +30,13 @@
             <TabItem Header="Списки">
                 <DockPanel>
                     <ToolBarTray DockPanel.Dock="Top">
-                        <ToolBar Header="Сервера">
-                            <ComboBox Margin="30,0,0,0" MinWidth="120" MaxWidth="200" SelectedIndex="0"
-                                      ItemsSource="{x:Static data:TestData.Servers}" DisplayMemberPath="Address">
+                        <ToolBar  Header="Сервера">
+                            <Label  Margin="1,0,0,0" VerticalAlignment="Center"
+                                    Content="Выбрать server"
+                                    ToolTip="Выбрать smtp-server"
+                                    Width="83" HorizontalAlignment="Stretch"/>
+                            <ComboBox MinWidth="120" MaxWidth="200" SelectedIndex="0"
+                                      ItemsSource="{x:Static data:TestData.Servers}" DisplayMemberPath="Address" Width="128">
                                 <!--<ComboBoxItem>smtp.yandex.ru:465</ComboBoxItem>
                                 <ComboBoxItem>smtp.mail.ru:465</ComboBoxItem>
                                 <ComboBoxItem>smtp.gmail.com:587</ComboBoxItem>-->
@@ -49,15 +53,15 @@
                             <Button ToolTip="Убавить" fa:Awesome.Content="Solid_Trash" Foreground="Red"/>
                         </ToolBar>
                         <ToolBar Header="Отправители" Band="1" BandIndex="0">
-                            <ComboBox MinWidth="120" MaxWidth="200" SelectedIndex="0"
-                                      ItemsSource="{x:Static data:TestData.Senders}">
+                            <ComboBox MinWidth="120" MaxWidth="210" SelectedIndex="0" 
+                                      ItemsSource="{x:Static data:TestData.Senders}" Width="187" FontSize="12">
                                 <!--<ComboBoxItem>ivanov@yandex.ru:</ComboBoxItem>
                                 <ComboBoxItem>petrov@mail.ru:</ComboBoxItem>
                                 <ComboBoxItem>sidorov@gmail.com</ComboBoxItem>-->
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate DataType="m:Sender">
                                         <StackPanel Orientation="Horizontal">
-                                            <TextBlock Text="{Binding Name}"/>
+                                            <TextBlock VerticalAlignment="Center" Margin="1,0,0,0" Text="{Binding Name}"/>
                                             <TextBlock Text="{Binding Address}" Margin="3,0,0,0"
                                                        Opacity="0.6" FontSize="8"/>
                                         </StackPanel>
@@ -75,12 +79,12 @@
                             <Button ToolTip="Редактировать" fa:Awesome.Content="Solid_Edit" Foreground="DarkOrange"/>
                             <Button ToolTip="Убавить" fa:Awesome.Content="Solid_Trash" Foreground="Red"/>
                         </ToolBar>
-                        <ToolBar>
+                        <ToolBar Width="343">
                             <TextBlock Text=" Перейти в планировщик" VerticalAlignment="Center"/>
-                            <Button fa:Awesome.Content="Regular_Clock" Foreground="DarkBlue"/>
+                            <Button  fa:Awesome.Content="Regular_Clock" Foreground="DarkBlue" Margin="128,0,0,0"/>
                         </ToolBar>
-                        <ToolBar Band="1" Header="Получатели">
-                            <Button ToolTip="Добавить" fa:Awesome.Content="Solid_PlusCircle" Foreground="DarkBlue"/>
+                        <ToolBar Band="1" Header="Получатели" Width="342">
+                            <Button ToolTip="Добавить" Margin="94,0,0,0" fa:Awesome.Content="Solid_PlusCircle" Foreground="DarkBlue"/>
                             <Button ToolTip="Редактировать" fa:Awesome.Content="Solid_Edit" Foreground="DarkOrange"/>
                             <Button ToolTip="Убавить" fa:Awesome.Content="Solid_Trash" Foreground="Red"/>
                         </ToolBar>
