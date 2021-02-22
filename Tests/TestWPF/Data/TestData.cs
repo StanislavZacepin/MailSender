@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TestWPF;
 using WpfMailSender.Models;
+using MailSender.lib.Service;
+
 
 namespace WpfMailSender.Data
 {
@@ -15,7 +13,7 @@ namespace WpfMailSender.Data
             Name = $"Сервер-{i}",
             Address = $"smtp.server{i}.com",
             Login = $"Logon-{i}",
-            Password = $"Password-{i}",
+            Password = TextEncoder.Encode($"Password-{i}",7),
             UseSSL = i % 2 == 0,
         }).ToList();
 
