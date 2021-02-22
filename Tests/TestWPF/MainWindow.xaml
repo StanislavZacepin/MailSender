@@ -24,11 +24,122 @@
             <StatusBarItem Content="Хорошего дня!"/>
         </StatusBar>
         <TabControl>
-            <TabItem Header="Списки"/>
-            <TabItem Header="Планировщик"/>
+            <TabItem Header="Списки">
+                <DockPanel>
+                    <ToolBarTray DockPanel.Dock="Top">
+                        <ToolBar Header="Сервера">
+                            <ComboBox Margin="30,0,0,0" MinWidth="120" MaxWidth="200" SelectedIndex="0">
+                                <ComboBoxItem>smtp.yandex.ru:465</ComboBoxItem>
+                                <ComboBoxItem>smtp.mail.ru:465</ComboBoxItem>
+                                <ComboBoxItem>smtp.gmail.com:587</ComboBoxItem>
+                            </ComboBox>
+                            <Button>Добавить</Button>
+                            <Button>Рдактировать</Button>
+                            <Button>Убавить</Button>
+                        </ToolBar>
+                        <ToolBar Header="Отправители" Band="1" BandIndex="0">
+                            <ComboBox MinWidth="120" MaxWidth="200" SelectedIndex="0">
+                                <ComboBoxItem>ivanov@yandex.ru:</ComboBoxItem>
+                                <ComboBoxItem>petrov@mail.ru:</ComboBoxItem>
+                                <ComboBoxItem>sidorov@gmail.com</ComboBoxItem>
+                            </ComboBox>
+                            <Button>Добавить</Button>
+                            <Button>Рдактировать</Button>
+                            <Button>Убавить</Button>
+                        </ToolBar>
+                        <ToolBar>
+                            <TextBlock Text=" Перейти в планировщик" VerticalAlignment="Center"/>
+                            <Button>Перейти</Button>
+                        </ToolBar>
+                        <ToolBar Band="1" Header="Получатели">
+                            <Button Content="Создать"/>
+                            <Button Content="Редактировать"/>
+                            <Button Content="Удалить"/>
+                        </ToolBar>
+                    </ToolBarTray>
+                    <GroupBox Header="Список получателей"  Margin="3">
+                        <DataGrid AutoGenerateColumns="False">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" MinWidth="30" />
+                                <DataGridTextColumn Header="Имя" Width="*"/>
+                                <DataGridTextColumn Header="Адрес" MinWidth="120"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </GroupBox>
+                </DockPanel>
+            </TabItem>
+            <TabItem Header="Планировщик">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="185"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <GroupBox Grid.Column="0" Header="Управление">
+                        <StackPanel>
+                            <TextBlock Text="Календарь" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                            <Calendar/>
+                            <TextBlock Text="Время" HorizontalAlignment="Center" Margin="0,5,0,0"/>
+                            <TextBox Margin="10,0"/>
+                            <StackPanel Margin="5,7">
+                                <StackPanel.Resources>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Margin" Value="0,3"/>
+                                    </Style>
+                                </StackPanel.Resources>
+                                <Button Content="Запланировать"/>
+                                <Button Content="Отправить"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Grid.Column="1" Header="Задания">
+                        <ListBox>
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                            <ListBoxItem>
+                                <GroupBox>
+                                    <GroupBox.Header>
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock VerticalAlignment="Center">Задание от 22.02.21 13:58</TextBlock>
+                                            <Button Margin="5,0,0,0" Background="Transparent" BorderThickness="0" Foreground="Red" FontWeight="Bold"></Button>
+                                        </StackPanel>
+                                    </GroupBox.Header>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto"/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Grid.Column="0" Grid.Row="0" Text="Отправитель:"/>
+                                        <TextBlock Grid.Column="1" Grid.Row="0" Text="Иванов И.И."/>
+                                        
+                                        <TextBlock Grid.Column="0" Grid.Row="1" Text="Получатели:"/>
+                                        <ItemsControl Grid.Column="1" Grid.Row="1">
+                                            <TextBox Text="Иванов И.И."/>
+                                            <TextBox Text="Петров"/>
+                                            <TextBox Text="Сидоров"/>
+                                        </ItemsControl>
+
+                                        <TextBlock Grid.Column="0" Grid.Row="2" Text="Получатели:"/>
+                                        <TextBlock Grid.Column="1" Grid.Row="2" Text="Тема письма"/>
+                                    </Grid>
+                                </GroupBox>
+                            </ListBoxItem>
+                        </ListBox>
+                    </GroupBox>
+                    <GridSplitter Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="3" Background="Transparent"></GridSplitter>
+                </Grid>
+            </TabItem>
             <TabItem Header="Письма"/>
             <TabItem Header="Статистика"/>
         </TabControl>
     </DockPanel>
-   
+
 </Window>
