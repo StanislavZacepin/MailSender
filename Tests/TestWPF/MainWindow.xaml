@@ -103,9 +103,8 @@
                             <Button ToolTip="Редактировать" fa:Awesome.Content="Solid_Edit" Foreground="DarkOrange"/>
                             <Button ToolTip="Убавить" fa:Awesome.Content="Solid_Trash" Foreground="Red"/>
                         </ToolBar>
-                        <ToolBar Band="2">
-                            <contr:ItemsPanel Title="{Binding Text, ElementName=Test}"/>
-                            <TextBox Name="Test" Text="123"/>
+                        <ToolBar Band="2" >
+                            <contr:ItemsPanel/>
                         </ToolBar>
                     </ToolBarTray>
                     <GroupBox Header="Список получателей"  Margin="3">
