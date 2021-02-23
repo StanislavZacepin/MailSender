@@ -25,5 +25,11 @@ namespace TestWPF
         public MainWindow() => InitializeComponent();
 
         private void Exit_Click(object sender, RoutedEventArgs e) => Close();
+
+        private void NexstV(object sender, RoutedEventArgs e)
+        {
+            TabontrolList.SelectedItem = TabScheduler;
+
+        }
     }
 }

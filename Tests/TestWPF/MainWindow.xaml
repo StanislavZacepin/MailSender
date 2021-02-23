@@ -26,7 +26,7 @@
             </StatusBarItem>
             <StatusBarItem Content="Хорошего дня!"/>
         </StatusBar>
-        <TabControl>
+        <TabControl x:Name="TabontrolList">
             <TabItem Header="Списки">
                 <DockPanel>
                     <ToolBarTray DockPanel.Dock="Top">
@@ -36,7 +36,8 @@
                                     ToolTip="Выбрать smtp-server"
                                     Width="83" HorizontalAlignment="Stretch"/>
                             <ComboBox MinWidth="120" MaxWidth="200" SelectedIndex="0"
-                                      ItemsSource="{x:Static data:TestData.Servers}" DisplayMemberPath="Address" Width="128">
+                                      ItemsSource="{x:Static data:TestData.Servers}"
+                                      DisplayMemberPath="Address" Width="128">
                                 <!--<ComboBoxItem>smtp.yandex.ru:465</ComboBoxItem>
                                 <ComboBoxItem>smtp.mail.ru:465</ComboBoxItem>
                                 <ComboBoxItem>smtp.gmail.com:587</ComboBoxItem>-->
@@ -81,10 +82,23 @@
                         </ToolBar>
                         <ToolBar Width="343">
                             <TextBlock Text=" Перейти в планировщик" VerticalAlignment="Center"/>
-                            <Button  fa:Awesome.Content="Regular_Clock" Foreground="DarkBlue" Margin="128,0,0,0"/>
+                            <Button  fa:Awesome.Content="Regular_Clock" Foreground="DarkBlue" Margin="128,0,0,0" Click="NexstV" />
                         </ToolBar>
                         <ToolBar Band="1" Header="Получатели" Width="342">
-                            <Button ToolTip="Добавить" Margin="94,0,0,0" fa:Awesome.Content="Solid_PlusCircle" Foreground="DarkBlue"/>
+                            <ComboBox HorizontalAlignment="Stretch"
+                                      ItemsSource="{x:Static data:TestData.Recipentss}"
+                                      Width="89">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate DataType="data:Recipentss">
+                                        <StackPanel Orientation="Horizontal">
+                                            <TextBlock VerticalAlignment="Center" Margin="1,0,0,0" Text="{Binding Name}"/>
+                                            <TextBlock Text="{Binding Address}" Margin="3,0,0,0"
+                                                       Opacity="0.6" FontSize="8"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                            <Button ToolTip="Добавить" Margin="3,0,0,0" fa:Awesome.Content="Solid_PlusCircle" Foreground="DarkBlue"/>
                             <Button ToolTip="Редактировать" fa:Awesome.Content="Solid_Edit" Foreground="DarkOrange"/>
                             <Button ToolTip="Убавить" fa:Awesome.Content="Solid_Trash" Foreground="Red"/>
                         </ToolBar>
@@ -105,7 +119,7 @@
                     </GroupBox>
                 </DockPanel>
             </TabItem>
-            <TabItem Header="Планировщик">
+            <TabItem Header="Планировщик" Name="TabScheduler">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" MinWidth="185"/>
