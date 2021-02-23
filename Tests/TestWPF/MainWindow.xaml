@@ -7,6 +7,7 @@
         xmlns:local="clr-namespace:TestWPF"
         xmlns:data="clr-namespace:WpfMailSender.Data" 
         xmlns:m="clr-namespace:WpfMailSender.Models" 
+        xmlns:contr="clr-namespace:WpfMailSender.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
@@ -101,6 +102,10 @@
                             <Button ToolTip="Добавить" Margin="3,0,0,0" fa:Awesome.Content="Solid_PlusCircle" Foreground="DarkBlue"/>
                             <Button ToolTip="Редактировать" fa:Awesome.Content="Solid_Edit" Foreground="DarkOrange"/>
                             <Button ToolTip="Убавить" fa:Awesome.Content="Solid_Trash" Foreground="Red"/>
+                        </ToolBar>
+                        <ToolBar Band="2">
+                            <contr:ItemsPanel Title="{Binding Text, ElementName=Test}"/>
+                            <TextBox Name="Test" Text="123"/>
                         </ToolBar>
                     </ToolBarTray>
                     <GroupBox Header="Список получателей"  Margin="3">
