@@ -7,9 +7,13 @@
         xmlns:local="clr-namespace:TestWPF"
         xmlns:data="clr-namespace:WpfMailSender.Data" 
         xmlns:m="clr-namespace:WpfMailSender.Models" 
-        xmlns:contr="clr-namespace:WpfMailSender.Controls"
+        xmlns:contr="clr-namespace:WpfMailSender.Controls" 
+        xmlns:vm="clr-namespace:WpfMailSender.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding Title}" Height="450" Width="800">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
@@ -25,7 +29,7 @@
             <StatusBarItem DockPanel.Dock="Right">
                 <ResizeGrip/>
             </StatusBarItem>
-            <StatusBarItem Content="Хорошего дня!"/>
+            <StatusBarItem Content="{Binding Status}"/>
         </StatusBar>
         <TabControl x:Name="TabontrolList">
             <TabItem Header="Списки">
