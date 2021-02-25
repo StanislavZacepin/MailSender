@@ -10,10 +10,12 @@
         xmlns:contr="clr-namespace:WpfMailSender.Controls" 
         xmlns:vm="clr-namespace:WpfMailSender.ViewModels"
         mc:Ignorable="d"
-        Title="{Binding Title}" Height="450" Width="800">
-    <Window.DataContext>
+        Title="{Binding Title}"
+        DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
+        Height="450" Width="800">
+    <!--<Window.DataContext>
         <vm:MainWindowViewModel/>
-    </Window.DataContext>
+    </Window.DataContext>-->
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
@@ -41,13 +43,13 @@
                                     ToolTip="Выбрать smtp-server"
                                     Width="83" HorizontalAlignment="Stretch"/>
                             <ComboBox MinWidth="120" MaxWidth="200" SelectedIndex="0"
-                                      ItemsSource="{x:Static data:TestData.Servers}"
+                                      ItemsSource="{Binding Servers}"
                                       DisplayMemberPath="Address" Width="128">
                                 <!--<ComboBoxItem>smtp.yandex.ru:465</ComboBoxItem>
                                 <ComboBoxItem>smtp.mail.ru:465</ComboBoxItem>
                                 <ComboBoxItem>smtp.gmail.com:587</ComboBoxItem>-->
                             </ComboBox>
-                            <Button>
+                            <Button Command="">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:ImageAwesome Height="12" Icon="Solid_PlusCircle"
                                                      Margin="0,0,5,0"
