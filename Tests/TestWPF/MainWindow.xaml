@@ -49,7 +49,7 @@
                                 <ComboBoxItem>smtp.mail.ru:465</ComboBoxItem>
                                 <ComboBoxItem>smtp.gmail.com:587</ComboBoxItem>-->
                             </ComboBox>
-                            <Button Command="">
+                            <Button Command="{Binding LoadServersCommand}">
                                 <StackPanel Orientation="Horizontal">
                                     <fa:ImageAwesome Height="12" Icon="Solid_PlusCircle"
                                                      Margin="0,0,5,0"
