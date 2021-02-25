@@ -19,7 +19,7 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
-                <MenuItem Header="Выход" Click="Exit_Click"/>
+                <MenuItem Header="Выход" Command="{StaticResource CloseAppCommand}"/>
             </MenuItem>
             <MenuItem Header="Справка">
                 <MenuItem Header="Помощь"/>
