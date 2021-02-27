@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using TestWPF;
+using WpfMailSender.ViewModels;
 
 
 namespace WpfMailSender.ViewModels
