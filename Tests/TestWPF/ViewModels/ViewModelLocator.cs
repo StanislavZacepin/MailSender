@@ -13,5 +13,7 @@ namespace WpfMailSender.ViewModels
     internal class ViewModelLocator
     {
         public MainWindowViewModel MainWindowViewModel => App.Services.GetRequiredService<MainWindowViewModel>();
+
+        public StatisticViemModel Statistic => App.Services.GetRequiredService<StatisticViemModel>();
     }
 }

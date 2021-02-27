@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MailSender.lib.Commands;
+using MailSender.lib.Interfaces;
 using MailSender.lib.ViewModels.Base;
 using WpfMailSender.Infastructure;
 using WpfMailSender.Models;
@@ -15,7 +16,7 @@ namespace WpfMailSender.ViewModels
     class MainWindowViewModel : ViewModel
     {
         private readonly ServersRepository _Servers;
-
+        private readonly IMailService _MailService;
         private string _Title = "Рассыльщик";
 
         public string Title { get => _Title; set => Set(ref _Title, value);}
@@ -39,10 +40,26 @@ namespace WpfMailSender.ViewModels
         {
             LoadServers();
         }
+         private ICommand _SendEmailComand;
+
+        public ICommand SendEmailComand => _SendEmailComand
+            ??= new LambdaCommand(OnSendServersCommandExecuted, CanSendServersCommandExecute);
+
+        private bool CanSendServersCommandExecute(object p) => Servers.Count == 0;
+
+        private void OnSendServersCommandExecuted(object p)
+        {
+            _MailService.SendEmail("Иванов", "Смирнов", "Тема", "Тело письма");
+        }
+
 
         #endregion
 
-        public MainWindowViewModel(ServersRepository servers) => _Servers = servers;
+        public MainWindowViewModel(ServersRepository servers, IMailService MailService)
+        {
+            _Servers = servers;
+            _MailService = MailService;
+        }
 
         private void LoadServers()
         {

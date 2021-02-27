@@ -10,10 +10,12 @@ namespace MailSender.lib.Interfaces
     {
         int SendedMailsCount { get; }
         event EventHandler SendedMailsCountChanged;
+        void MailSended();
 
         int SendersCount { get; }
+
         int RecipientsCount { get; }
+
         TimeSpan UpTime { get; }
-        void MailSended();
     }
 }

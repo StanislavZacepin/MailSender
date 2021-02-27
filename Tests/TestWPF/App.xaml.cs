@@ -4,6 +4,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using WpfMailSender.ViewModels;
 using WpfMailSender.Infastructure;
+using WpfMailSender.Infastructure.Services;
+using MailSender.lib.Interfaces;
+using MailSender.lib.Service;
 
 namespace TestWPF
 {
@@ -26,8 +29,11 @@ namespace TestWPF
         private static void ConfigureServices(HostBuilderContext host, IServiceCollection services)
         {
             services.AddSingleton<MainWindowViewModel>();
+            services.AddSingleton<StatisticViemModel>();
 
             services.AddSingleton<ServersRepository>();
+            services.AddSingleton<IStatistic, InMermoryStatisticService>();
+            services.AddSingleton<IMailService, DebugMailService>();
         }
     }
 }

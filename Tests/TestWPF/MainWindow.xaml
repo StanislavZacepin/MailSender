@@ -133,7 +133,7 @@
                                     </Style>
                                 </StackPanel.Resources>
                                 <Button Content="Запланировать"/>
-                                <Button  ToolTip="Отправить">
+                                <Button  ToolTip="Отправить" Command="{Binding SendEmailComand}">
                                     <StackPanel Orientation="Horizontal">
                                         <Label Content="Отправить" HorizontalAlignment="Center" Foreground="Black"/>
                                         <Label Margin="5,0,0,0" fa:Awesome.Content="Brands_FirefoxBrowser" Foreground="DarkBlue"/>
@@ -213,7 +213,10 @@
                     </GroupBox>
                 </Grid>
             </TabItem>
-            <TabItem Header="Статистика"/>
+            <TabItem Header="Статистика"
+                     xmlns:v="clr-namespace:WpfMailSender.Views">
+                <v:StatisticView/>
+            </TabItem>
         </TabControl>
     </DockPanel>
 </Window>
