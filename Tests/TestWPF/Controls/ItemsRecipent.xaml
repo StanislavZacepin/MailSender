@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="WpfMailSender.Controls.ItemsRecipent"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.fontawesome.com/icons/"
+              xmlns:data="clr-namespace:WpfMailSender.Data" 
+                xmlns:m="clr-namespace:WpfMailSender.Models" 
+             xmlns:l="clr-namespace:WpfMailSender.Controls"
+             mc:Ignorable="d"
+             Width="300" Height="16">
+    <DockPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="DockPanel.Dock" Value="Right"/>
+                    <Setter Property="Padding" Value="5,0"/>
+                    <Setter Property="Margin" Value="5,0,0,0"/>
+                    <Setter Property="BorderThickness" Value="0"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock Text="{Binding Title, RelativeSource={RelativeSource AncestorType=l:ItemsRecipent}}" RenderTransformOrigin="0.5,0.5" Width="80">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleX="1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform>
+            </TextBlock>
+            <ComboBox
+                                      ItemsSource="{x:Static data:TestData.Recipentss}"
+                                      Width="139">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate DataType="data:Recipentss">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock VerticalAlignment="Center" Margin="1,0,0,0" Text="{Binding Name}"/>
+                            <TextBlock Text="{Binding Address}" Margin="3,0,0,0"
+                                                       Opacity="0.6" FontSize="8"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Button ToolTip="Добавить" fa:Awesome.Content="Solid_PlusCircle" Foreground="DarkBlue"/>
+            <Button ToolTip="Редактировать" fa:Awesome.Content="Solid_Edit" Foreground="DarkOrange"/>
+            <Button ToolTip="Убавить" fa:Awesome.Content="Solid_Trash" Foreground="Red"/>
+        </StackPanel>
+    </DockPanel>
+</UserControl>

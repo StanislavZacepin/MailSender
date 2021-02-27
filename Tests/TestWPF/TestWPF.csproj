@@ -9,6 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Page Update="Controls\ItemsRecipent.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
     <Page Update="Theme.xaml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Page>
