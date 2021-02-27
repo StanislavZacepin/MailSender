@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:TestWPF"
              xmlns:vm="clr-namespace:WpfMailSender.ViewModels" 
-             xmlns:command="clr-namespace:MailSender.lib.Commands.Base;assembly=MailSender.lib"
+             xmlns:command="clr-namespace:MailSender.lib.Commands;assembly=MailSender.lib"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>

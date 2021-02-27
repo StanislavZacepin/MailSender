@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using TestWPF;
 
+
 namespace WpfMailSender.ViewModels
 {
     internal class ViewModelLocator

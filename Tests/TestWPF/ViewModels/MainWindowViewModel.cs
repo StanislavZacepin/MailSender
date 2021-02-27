@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using MailSender.lib.Commands.Base;
+using MailSender.lib.Commands;
 using MailSender.lib.ViewModels.Base;
 using WpfMailSender.Infastructure;
 using WpfMailSender.Models;
