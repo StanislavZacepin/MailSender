@@ -37,9 +37,9 @@ namespace WpfMailSender.ViewModels
 
         #region Команды
 
-        private ICommand _LoadDataComand;
+        private ICommand _LoadServersComand;
 
-        public ICommand LoadServersComand => _LoadDataComand
+        public ICommand LoadServersComand => _LoadServersComand
             ??= new LambdaCommand(OnLoadServersCommandExecuted, CanLoadServersCommandExecute);
 
         private bool CanLoadServersCommandExecute(object p) => Servers.Count == 0;
