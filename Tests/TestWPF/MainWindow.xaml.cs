@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TestWPF.model;
+
 
 namespace TestWPF
 {
@@ -21,21 +22,14 @@ namespace TestWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
-        {
-            
-            InitializeComponent();
-        }
+        public MainWindow() => InitializeComponent();
 
-      
-        private void SendButtonClick(object sender, RoutedEventArgs e)
-        {
-            EmailSendServiceClass emailSendServiceClass = new EmailSendServiceClass(Login.Text, PasswordEdit,textSubject.Text,textBody.Text,this);
-        }
+        private void Exit_Click(object sender, RoutedEventArgs e) => Close();
 
-        private void Exit_Click(object sender, RoutedEventArgs e)
+        private void NexstV(object sender, RoutedEventArgs e)
         {
-            Close();
+            TabontrolList.SelectedItem = TabScheduler;
+
         }
     }
 }
