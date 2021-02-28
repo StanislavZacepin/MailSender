@@ -8,14 +8,10 @@ using WpfMailSender.Models;
 
 namespace WpfMailSender.Infastructure.Services.InMemory
 {
-    class ServersRepository : IRepository<Server>
+    class ServersRepository : RepositoryInMemory<Server>
     {
-        private List<Server> _Servers;
-        private int _MaxId;
 
-        public ServersRepository()
-        {
-           _Servers = Enumerable.Range(1, 10).Select(i => new Server
+        public ServersRepository(): base (Enumerable.Range(1, 10).Select(i => new Server
             {
                Id = i,
                 Name = $"Сервер-{i}",
@@ -23,35 +19,17 @@ namespace WpfMailSender.Infastructure.Services.InMemory
                 Login = $"Logon-{i}",
                 Password = TextEncoder.Encode($"Password-{i}", 7),
                 UseSSL = i % 2 == 0,
-            }).ToList();
-            _MaxId = _Servers.Max(s => s.Id);
+            }))
+        { 
         }
-        public IEnumerable<Server> GetAll() => _Servers;
-
-      
-        public void Remove(Server server)
-        {
-            _Servers.Remove(server);
-        }
-
-        public Server GetById(int id) => _Servers.FirstOrDefault(s => s.Id == id);
-      
-
-        public int Add(Server item)
-        {
-            if (_Servers.Contains(item))
-                return item.Id;
-            item.Id = ++_MaxId;
-            _Servers.Add(item);
-            return item.Id;
-        }
-
-        public void Update(Server item)
-        {
-            if (_Servers.Contains(item))
-                return;
+        
+           
+       
+          
+        public override void Update(Server item)
+        {       
             var db_item = GetById(item.Id);
-            if (db_item is null) return;
+            if (db_item is null || ReferenceEquals(db_item,item)) return;
 
             db_item.Name = item.Name;
             db_item.Address = item.Address;
@@ -59,7 +37,5 @@ namespace WpfMailSender.Infastructure.Services.InMemory
             db_item.Login = item.Login;
             db_item.Password = item.Password;
         }
-
-        public bool Remove(int id) => _Servers.RemoveAll(s => s.Id == id) > 0;
     }
 }
