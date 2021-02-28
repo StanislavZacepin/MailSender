@@ -8,7 +8,7 @@ using System.Windows.Input;
 using MailSender.lib.Commands;
 using MailSender.lib.Interfaces;
 using MailSender.lib.ViewModels.Base;
-using WpfMailSender.Infastructure;
+using WpfMailSender.Infastructure.Services.InMemory;
 using WpfMailSender.Models;
 
 namespace WpfMailSender.ViewModels
