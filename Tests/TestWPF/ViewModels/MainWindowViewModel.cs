@@ -8,14 +8,19 @@ using System.Windows.Input;
 using MailSender.lib.Commands;
 using MailSender.lib.Interfaces;
 using MailSender.lib.ViewModels.Base;
+using WpfMailSender.Infastructure.Services;
 using WpfMailSender.Infastructure.Services.InMemory;
 using WpfMailSender.Models;
+using WpfMailSender.Models.Base;
 
 namespace WpfMailSender.ViewModels
 {
     class MainWindowViewModel : ViewModel
     {
-        private readonly ServersRepository _Servers;
+        private readonly IRepository<Server> _Servers;
+        private readonly IRepository<Sender> _Senders;
+        private readonly IRepository<Recipent> _Recipents;
+        private readonly IRepository<Message> _Messages;
         private readonly IMailService _MailService;
         private string _Title = "Рассыльщик";
 
@@ -58,18 +63,33 @@ namespace WpfMailSender.ViewModels
 
         #endregion
 
-        public MainWindowViewModel(ServersRepository servers, IMailService MailService)
+        public MainWindowViewModel(
+            IRepository<Server> servers,
+            IRepository<Sender> sender, 
+            IRepository<Recipent> recipent,
+            IRepository<Message> message, IMailService MailService)
         {
             _Servers = servers;
+            _Senders = sender;
+            _Recipents = recipent;
+            _Messages = message;
+
             _MailService = MailService;
         }
 
+        private static void Load<T>(ObservableCollection<T> collection, IRepository<T> rep) where T : Entity
+        {
+            collection.Clear();
+            foreach (var item in rep.GetAll())
+                collection.Add(item);
+        }
         private void LoadServers()
         {
-            foreach (var server in _Servers.GetAll())
-            {
-                Servers.Add(server);
-            }
+            Load(Servers,_Servers);
+            Load(Recipients,_Recipents);
+            Load(Senders,_Senders);
+            Load(Messages,_Messages);
+          
         }
     }
 }

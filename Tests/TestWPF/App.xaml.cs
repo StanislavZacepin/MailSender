@@ -7,6 +7,8 @@ using WpfMailSender.Infastructure;
 using WpfMailSender.Infastructure.Services;
 using MailSender.lib.Interfaces;
 using MailSender.lib.Service;
+using WpfMailSender.Infastructure.Services.InMemory;
+using WpfMailSender.Models;
 
 namespace TestWPF
 {
@@ -31,7 +33,15 @@ namespace TestWPF
             services.AddSingleton<MainWindowViewModel>();
             services.AddSingleton<StatisticViemModel>();
 
-            services.AddSingleton<ServersRepository>();
+            services.AddSingleton<IRepository<Server>, ServersRepository>();
+
+            services.AddSingleton<IRepository<Sender>, SendsRepository>();
+
+            services.AddSingleton<IRepository<Recipent>, RecipientsRepository>();
+
+            services.AddSingleton<IRepository<Message>, MessagesRepository>();
+
+
             services.AddSingleton<IStatistic, InMermoryStatisticService>();
             services.AddSingleton<IMailService, DebugMailService>();
         }
