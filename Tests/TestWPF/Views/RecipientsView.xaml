@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" mc:Ignorable="d"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             DataContext="{Binding MainWindowViewModel, Source={StaticResource Locator}}"
              xmlns:local="clr-namespace:WpfMailSender.Views"             
              d:DesignHeight="380" d:DesignWidth="440">
     <DockPanel Margin="3">
@@ -13,7 +14,7 @@
             <TextBox/>
         </DockPanel>
         <UniformGrid DockPanel.Dock="Bottom" Rows="1" HorizontalAlignment="Center" Margin="3">
-            <Button Content="Загрузка данных" Margin="3,0" Padding="20,3"/>
+            <Button Content="Загрузка данных" Margin="3,0" Padding="20,3" Command="{Binding LoadDataComand}"/>
             <Button Content="Сохранение данных" Margin="3,0" Padding="20,3"/>
         </UniformGrid>
         <DataGrid Margin="5,0" AutoGenerateColumns="False" 

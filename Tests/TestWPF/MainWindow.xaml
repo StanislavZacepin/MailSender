@@ -8,7 +8,7 @@
         xmlns:data="clr-namespace:WpfMailSender.Data" 
         xmlns:m="clr-namespace:WpfMailSender.Models" 
         xmlns:contr="clr-namespace:WpfMailSender.Controls" 
-        xmlns:vm="clr-namespace:WpfMailSender.ViewModels"
+        xmlns:vm="clr-namespace:WpfMailSender.ViewModels" xmlns:views="clr-namespace:WpfMailSender.Views"
         mc:Ignorable="d"
         Title="{Binding Title}"
         DataContext="{Binding MainWindowViewModel, Source={StaticResource  Locator}}"
@@ -88,8 +88,8 @@
                             <Button ToolTip="Убавить" fa:Awesome.Content="Solid_Trash" Foreground="Red"/>
                         </ToolBar>
                         <ToolBar Width="338">
-                            <TextBlock Text=" Перейти в планировщик" VerticalAlignment="Center"/>
-                            <Button  fa:Awesome.Content="Regular_Clock" Foreground="DarkBlue" Margin="128,0,0,0" Click="NexstV" />
+                            <TextBlock Text=" Перейти в планировщик" VerticalAlignment="Center" Width="263"/>
+                            <Button  fa:Awesome.Content="Regular_Clock" Foreground="DarkBlue" Click="NexstV" />
                         </ToolBar>
                         <ToolBar Band="1"  Width="337">
                             <contr:ItemsRecipent/>
@@ -101,18 +101,7 @@
                         </ToolBar>
                     </ToolBarTray>
                     <GroupBox Header="Список получателей"  Margin="3">
-                        <DataGrid AutoGenerateColumns="False" 
-                                  IsReadOnly="True" 
-                                  GridLinesVisibility="Vertical"
-                                  VerticalGridLinesBrush="DarkGray"
-                                  AlternatingRowBackground="#660000FF"
-                                  ItemsSource="{x:Static data:TestData.Recipentss}">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="ID" MinWidth="30" />
-                                <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="*"/>
-                                <DataGridTextColumn Header="Адрес" Binding="{Binding Address}" MinWidth="120"/>
-                            </DataGrid.Columns>
-                        </DataGrid>
+                        <views:RecipientsView/>
                     </GroupBox>
                 </DockPanel>
             </TabItem>
@@ -135,9 +124,9 @@
                                     </Style>
                                 </StackPanel.Resources>
                                 <Button Content="Запланировать"/>
-                                <Button  ToolTip="Отправить" Command="{Binding SendEmailComand}">
+                                <Button ToolTip="Отправить" Command="{Binding SendEmailComand}">
                                     <StackPanel Orientation="Horizontal">
-                                        <Label Content="Отправить" HorizontalAlignment="Center" Foreground="Black"/>
+                                        <Label  Content="Отправить" HorizontalAlignment="Center" Foreground="Black"/>
                                         <Label Margin="5,0,0,0" fa:Awesome.Content="Brands_FirefoxBrowser" Foreground="DarkBlue"/>
                                     </StackPanel>
                                 </Button>

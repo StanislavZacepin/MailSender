@@ -23,10 +23,9 @@ namespace WpfMailSender.Infastructure.Services.InMemory
             return item.Id;
         }
 
-        public IEnumerable<T> GetAll()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<T> GetAll() => _Items;
+
+
 
         public T GetById(int id) => _Items.FirstOrDefault(s => s.Id == id);
 
