@@ -62,7 +62,7 @@
                         </ToolBar>
                         <ToolBar Header="Отправители" Band="1" BandIndex="0">
                             <ComboBox MinWidth="120" MaxWidth="210" SelectedIndex="0" 
-                                      ItemsSource="{x:Static data:TestData.Senders}" Width="187" FontSize="12">
+                                      ItemsSource="{Binding Senders}" Width="187" FontSize="12">
                                 <!--<ComboBoxItem>ivanov@yandex.ru:</ComboBoxItem>
                                 <ComboBoxItem>petrov@mail.ru:</ComboBoxItem>
                                 <ComboBoxItem>sidorov@gmail.com</ComboBoxItem>-->
@@ -186,7 +186,7 @@
                     </Grid.ColumnDefinitions>
                     <GroupBox Grid.Column="0" Header="Письма">
                         <ListBox MinWidth="120"
-                             ItemsSource="{x:Static data:TestData.Messages}"
+                             ItemsSource="{Binding Messages}"
                              DisplayMemberPath="Title"
                              Name="MessagesList"/>
                     </GroupBox>
