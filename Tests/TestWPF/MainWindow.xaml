@@ -95,7 +95,9 @@
                             <contr:ItemsRecipent/>
                         </ToolBar>
                         <ToolBar Band="2" Width="458" >
-                            <contr:ItemsPanel Width="415"/>
+                            <contr:ItemsPanel Title="Сервера" 
+                                              ItemTemplate="{Binding Servers}" Width="415"
+                                              SelectedItem="{Binding SelectedServer}"/>
                         </ToolBar>
                     </ToolBarTray>
                     <GroupBox Header="Список получателей"  Margin="3">
