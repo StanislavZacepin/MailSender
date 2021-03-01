@@ -3,9 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" mc:Ignorable="d"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              DataContext="{Binding MainWindowViewModel, Source={StaticResource Locator}}"
              xmlns:local="clr-namespace:WpfMailSender.Views"             
              d:DesignHeight="380" d:DesignWidth="440">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadServersComand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <DockPanel Margin="3">
         <TextBlock Text="Получатели" DockPanel.Dock="Top" HorizontalAlignment="Center"
                    FontWeight="Bold" FontSize="20"/>
@@ -22,7 +28,8 @@
                                   GridLinesVisibility="Vertical"
                                   VerticalGridLinesBrush="DarkGray"
                                   AlternatingRowBackground="#660000FF"
-                                  ItemsSource="{Binding Recipients}">
+                                  ItemsSource="{Binding Recipients}"
+                                  SelectedItem="{Binding SelectedRecipient}" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" MinWidth="30" />
                 <DataGridTextColumn Header="Имя" Binding="{Binding Name}" Width="*"/>

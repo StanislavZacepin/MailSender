@@ -37,6 +37,43 @@ namespace WpfMailSender.ViewModels
 
         #region Команды
 
+
+        #region SelectedRecipient : Recipent - Выбранный получатель
+        /// <summary>Выбранный получатель</summary>
+        private Recipent _SelectedRecipient;
+
+        /// <summary>Выбранный получатель</summary>
+
+        public Recipent SelectedRecipient { get => _SelectedRecipient; set => Set(ref _SelectedRecipient, value); }
+        #endregion
+                      
+        #region SelectedSender : Sender - Выбранный Отправитель
+        /// <summary>Выбранный Отправитель</summary>
+        private Sender _SelectedSender;
+
+        /// <summary>Выбранный Отправитель</summary>
+
+        public Sender SelectedSender { get => _SelectedSender; set => Set(ref _SelectedSender, value); } 
+        #endregion 
+        
+        #region SelectedMessage : Message - Выбранное сообщения
+        /// <summary>Выбранное сообщения</summary>
+        private Message _SelectedMessage;
+
+        /// <summary>Выбранное сообщения</summary>
+
+        public Message SelectedMessage { get => _SelectedMessage; set => Set(ref _SelectedMessage, value); } 
+        #endregion 
+        
+        #region SelectedServer : Server - Выбранный Сервер
+        /// <summary>Выбранный Сервер</summary>
+        private Server _SelectedServer;
+
+        /// <summary>Выбранный Сервер</summary>
+
+        public Server SelectedServer { get => _SelectedServer; set => Set(ref _SelectedServer, value); } 
+        #endregion
+
         private ICommand _LoadServersComand;
 
         public ICommand LoadServersComand => _LoadServersComand
