@@ -1,6 +1,8 @@
-﻿namespace WpfMailSender.Models
+﻿using WpfMailSender.Models.Base;
+
+namespace WpfMailSender.Models
 {
-    public class Server
+    public class Server : Entity
     {
         public string Name { get; set; }
         public string Address { get; set; }
@@ -8,5 +10,7 @@
         public bool UseSSL { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public override string ToString() => $"{Name}:{Port}";
+
     }
 }
