@@ -5,7 +5,7 @@ using WpfMailSender.Models.Base;
 
 namespace WpfMailSender.Infastructure.Services.InMemory
 {
-    abstract class RepositoryInMemory<T> : IRepository<T> where T : Entity
+   public abstract class RepositoryInMemory<T> : IRepository<T> where T : Entity
     {
         private List<T> _Items;
         private int _MaxId;
