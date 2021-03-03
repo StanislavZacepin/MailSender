@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWPF", "Tests\TestWPF\Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MailSender.lib", "MailSender.lib\MailSender.lib.csproj", "{A443EA8D-E9F0-4E85-9E7E-B5EA8DB3DB4B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWPF.Tests", "Tests\TestWPF.Tests\TestWPF.Tests.csproj", "{630F4F42-F1BE-4EFA-8273-5E0C37D8A0B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSender.lib.Tests", "Tests\MailSender.lib.Tests\MailSender.lib.Tests.csproj", "{66454B17-436E-441A-8ECF-4AC75CD0BDB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,13 +33,22 @@ Global
 		{A443EA8D-E9F0-4E85-9E7E-B5EA8DB3DB4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A443EA8D-E9F0-4E85-9E7E-B5EA8DB3DB4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A443EA8D-E9F0-4E85-9E7E-B5EA8DB3DB4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{630F4F42-F1BE-4EFA-8273-5E0C37D8A0B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{630F4F42-F1BE-4EFA-8273-5E0C37D8A0B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{630F4F42-F1BE-4EFA-8273-5E0C37D8A0B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{630F4F42-F1BE-4EFA-8273-5E0C37D8A0B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66454B17-436E-441A-8ECF-4AC75CD0BDB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66454B17-436E-441A-8ECF-4AC75CD0BDB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66454B17-436E-441A-8ECF-4AC75CD0BDB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66454B17-436E-441A-8ECF-4AC75CD0BDB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{11096593-E974-4711-A207-6A7542529FB7} = {A12EEFF7-2115-4BAE-813E-E8305284EF2C}
-		{D5615897-5418-432C-A8F0-00192E611094} = {A12EEFF7-2115-4BAE-813E-E8305284EF2C}
+		{630F4F42-F1BE-4EFA-8273-5E0C37D8A0B7} = {A12EEFF7-2115-4BAE-813E-E8305284EF2C}
+		{66454B17-436E-441A-8ECF-4AC75CD0BDB8} = {A12EEFF7-2115-4BAE-813E-E8305284EF2C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {07FF710E-D6D9-4CCB-B057-652F26F4F115}
