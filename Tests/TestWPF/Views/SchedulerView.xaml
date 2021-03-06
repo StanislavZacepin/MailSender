@@ -60,7 +60,7 @@
                         </Style>
                     </StackPanel.Resources>
                     <Button Content="Запланировать"/>
-                    <Button ToolTip="Отправить" Command="{Binding SendEmailComand}">
+                    <Button ToolTip="Отправить" DataContext="{Binding MainWindowViewModel, Source={StaticResource  Locator}}" Command="{Binding SendEmailComand}">
                         <StackPanel Orientation="Horizontal">
                             <Label  Content="Отправить" HorizontalAlignment="Center" Foreground="Black"/>
                             <Label Margin="5,0,0,0" fa:Awesome.Content="Brands_FirefoxBrowser" Foreground="DarkBlue"/>

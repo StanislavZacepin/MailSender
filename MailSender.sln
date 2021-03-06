@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWPF", "Tests\TestWPF\Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MailSender.lib", "MailSender.lib\MailSender.lib.csproj", "{A443EA8D-E9F0-4E85-9E7E-B5EA8DB3DB4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWPF.Tests", "Tests\TestWPF.Tests\TestWPF.Tests.csproj", "{630F4F42-F1BE-4EFA-8273-5E0C37D8A0B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestWPF.Tests", "Tests\TestWPF.Tests\TestWPF.Tests.csproj", "{630F4F42-F1BE-4EFA-8273-5E0C37D8A0B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSender.lib.Tests", "Tests\MailSender.lib.Tests\MailSender.lib.Tests.csproj", "{66454B17-436E-441A-8ECF-4AC75CD0BDB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MailSender.lib.Tests", "Tests\MailSender.lib.Tests\MailSender.lib.Tests.csproj", "{66454B17-436E-441A-8ECF-4AC75CD0BDB8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

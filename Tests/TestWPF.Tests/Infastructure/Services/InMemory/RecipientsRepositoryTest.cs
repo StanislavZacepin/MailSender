@@ -6,12 +6,12 @@ using WpfMailSender.Models;
 namespace TestWPF.Tests.Infastructure.Services.InMemory
 {
     [TestClass]
-    public class MessagesRepositoryTest
-    { 
+    public class RecipientsRepositoryTest
+    {
         [TestMethod]
         public void GetAll_Test()
         {
-            var repository = new MessagesRepository();
+            var repository = new RecipientsRepository();
 
             var all = repository.GetAll();
 
@@ -21,19 +21,19 @@ namespace TestWPF.Tests.Infastructure.Services.InMemory
         [TestMethod]
         public void Add_Test()
         {
-            var repository = new MessagesRepository();
-            var message = new Message
+            var repository = new RecipientsRepository();
+            var recipent = new Recipent
             {
-                Title = "Unit test message",
-                Text = "Unit test text message"
+                Name = "Unit test message",
+                Address = "Unit test text message"
             };
 
-            var actual_id = repository.Add(message);
+            var actual_id = repository.Add(recipent);
 
             var all = repository.GetAll().ToArray();
 
-            Assert.AreEqual(actual_id, message.Id);
-            CollectionAssert.Contains(all, message);
+            Assert.AreEqual(actual_id, recipent.Id);
+            CollectionAssert.Contains(all, recipent);
             //StringAssert.Matches();
         }
     }

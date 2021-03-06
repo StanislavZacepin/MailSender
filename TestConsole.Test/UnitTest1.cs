@@ -1,6 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace TestWPF.Tests
+namespace TestConsole.Test
 {
     [TestClass]
     public class UnitTest1
