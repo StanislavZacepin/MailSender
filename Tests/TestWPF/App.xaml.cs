@@ -9,6 +9,7 @@ using MailSender.lib.Interfaces;
 using MailSender.lib.Service;
 using WpfMailSender.Infastructure.Services.InMemory;
 using WpfMailSender.Models;
+using MailSender.lib;
 
 namespace TestWPF
 {
@@ -43,7 +44,13 @@ namespace TestWPF
 
 
             services.AddSingleton<IStatistic, InMermoryStatisticService>();
+
+#if DEBUG
             services.AddSingleton<IMailService, DebugMailService>();
+#else
+
+        services.AddSingleton<IMailService, SmtpMailService>();
+#endif        
         }
     }
 }

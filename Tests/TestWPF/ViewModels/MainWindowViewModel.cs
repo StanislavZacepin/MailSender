@@ -98,7 +98,9 @@ namespace WpfMailSender.ViewModels
 
         private void OnSendServersCommandExecuted(object p)
         {
-            _MailService.SendEmail("Иванов", "Смирнов", "Тема", "Тело письма");
+            
+            var sender = _MailService.GetSender("smtp.yandex.ru", 25, true, "login", "password");
+            sender.Send("Иванов", "Петров", "Тема", "Тело письма");
         }
 
 
