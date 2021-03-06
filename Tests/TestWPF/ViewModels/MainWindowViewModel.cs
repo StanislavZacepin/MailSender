@@ -17,6 +17,8 @@ namespace WpfMailSender.ViewModels
 {
     class MainWindowViewModel : ViewModel
     {
+      
+
         private readonly IRepository<Server> _Servers;
         private readonly IRepository<Sender> _Senders;
         private readonly IRepository<Recipent> _Recipents;
@@ -89,6 +91,8 @@ namespace WpfMailSender.ViewModels
 
         public ICommand SendEmailComand => _SendEmailComand
             ??= new LambdaCommand(OnSendServersCommandExecuted, CanSendServersCommandExecute);
+
+       
 
         private bool CanSendServersCommandExecute(object p) => Servers.Count == 0;
 
