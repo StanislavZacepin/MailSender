@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WpfMailSender.Views"
-             xmlns:vr="clr-namespace:WpfMailSender.Infastructure.ValidationRuls"
+              xmlns:vr="clr-namespace:WpfMailSender.Infastructure.ValidationRuls"
              xmlns:fa="http://schemas.fontawesome.com/icons/"
              mc:Ignorable="d" 
               DataContext="{Binding  Source={StaticResource TimeSchedulerView}}"
@@ -39,8 +39,20 @@
                 <TextBlock Text="Календарь" HorizontalAlignment="Center" Margin="0,5,0,0"/>
                 <Calendar/>
                 <TextBlock Text="Время" HorizontalAlignment="Center" Margin="0,5,0,0"/>
-                <TextBox Margin="10,0"  Text="{Binding dateTimeSchedulerView ,  NotifyOnValidationError=True  ,  ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" 
-                         Validation.Error="OnTimeValidationError"  />
+                <TextBox Margin="10,0" Validation.Error="OnTimeValidationError">
+                    <TextBox.Text>
+                        <Binding Path="dateTimeSchedulerView"
+                         NotifyOnValidationError="True"
+                         UpdateSourceTrigger="PropertyChanged">
+                            <Binding.ValidationRules>
+                                <vr:RegExValidation Pattern="[0-9]{2}[:]{1}[0-9]{2}" ErrorMesage=" Неверный формат надо написать время "/>
+                                <NotifyDataErrorValidationRule/>
+                                <DataErrorValidationRule/>
+                                <ExceptionValidationRule/>
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>
+                </TextBox>
                 <StackPanel Margin="5,7">
                     <StackPanel.Resources>
                         <Style TargetType="Button">
