@@ -5,12 +5,14 @@
              xmlns:vm="clr-namespace:WpfMailSender.ViewModels" 
              xmlns:command="clr-namespace:MailSender.lib.Commands;assembly=MailSender.lib"
              xmlns:converters="clr-namespace:WpfMailSender.Infastructure.Converters"
+             xmlns:sv="clr-namespace:WpfMailSender.Infastructure.Services"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <vm:ViewModelLocator x:Key="Locator"/>
             <command:CloseAppCommand x:Key="CloseAppCommand"/>
             <converters:DebugConverter x:Key="DebugConverter"/>
+            <sv:TimeSchedulerView x:Key="TimeSchedulerView"/>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme.xaml"/>
             </ResourceDictionary.MergedDictionaries>

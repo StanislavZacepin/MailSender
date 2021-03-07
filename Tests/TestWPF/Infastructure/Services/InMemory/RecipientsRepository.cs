@@ -3,7 +3,7 @@ using WpfMailSender.Models;
 
 namespace WpfMailSender.Infastructure.Services.InMemory
 {
-    class RecipientsRepository : RepositoryInMemory<Recipent>
+    public class RecipientsRepository : RepositoryInMemory<Recipent>
     {
 
         public RecipientsRepository() : base(Enumerable.Range(1, 10).Select(i => new Recipent
