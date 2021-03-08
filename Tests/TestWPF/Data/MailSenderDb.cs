@@ -8,7 +8,7 @@ using WpfMailSender.Models;
 
 namespace WpfMailSender.Data
 {
-     class MailSenderDb : DbContext
+     public class MailSenderDb : DbContext
     {
         public DbSet<Sender> Senders { get; set; }
 
@@ -19,6 +19,7 @@ namespace WpfMailSender.Data
         public DbSet<Message> Messages { get; set; }
 
         public DbSet<SchedulerTask> Tasks {get ; set;}
+        public object Recipients { get; internal set; }
 
         public MailSenderDb(DbContextOptions<MailSenderDb> options) : base(options)
         {

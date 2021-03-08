@@ -12,6 +12,8 @@ using WpfMailSender.Models;
 using MailSender.lib;
 using Microsoft.EntityFrameworkCore;
 using WpfMailSender.Data;
+using WpfMailSender.Infastructure.Services.InDatabase;
+using System.Windows;
 
 namespace TestWPF
 {
@@ -34,26 +36,41 @@ namespace TestWPF
         private static void ConfigureServices(HostBuilderContext host, IServiceCollection services)
         {
             services.AddDbContext<MailSenderDb>(opt => opt.UseSqlServer(host.Configuration.GetConnectionString("SqlServer")));
+            services.AddTransient<DbInitializer>();
+
             services.AddSingleton<MainWindowViewModel>();
             services.AddSingleton<StatisticViemModel>();
 
-            services.AddSingleton<IRepository<Server>, ServersRepository>();
+            //services.AddSingleton<IRepository<Server>, ServersRepository>();
+            //services.AddSingleton<IRepository<Sender>, SendersRepository>();
+            //services.AddSingleton<IRepository<Recipient>, RecipientsRepository>();
+            //services.AddSingleton<IRepository<Message>, MessagesRepository>();
 
-            services.AddSingleton<IRepository<Sender>, SendsRepository>();
-
-            services.AddSingleton<IRepository<Recipent>, RecipientsRepository>();
-
-            services.AddSingleton<IRepository<Message>, MessagesRepository>();
-
+            //services.AddScoped<IRepository<Server>, DbRepository<Server>>();
+            //services.AddScoped<IRepository<Sender>, DbRepository<Sender>>();
+            //services.AddScoped<IRepository<Recipient>, DbRepository<Recipient>>();
+            //services.AddScoped<IRepository<Message>, DbRepository<Message>>();
+            //services.AddScoped<IRepository<SchedulerTask>, DbRepository<SchedulerTask>>();
+            services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
 
             services.AddSingleton<IStatistic, InMermoryStatisticService>();
 
 #if DEBUG
             services.AddSingleton<IMailService, DebugMailService>();
 #else
+            services.AddSingleton<IMailService, SmtpMailService>();
+#endif
+        }
 
-        services.AddSingleton<IMailService, SmtpMailService>();
-#endif        
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            using (var scope = Services.CreateScope())
+            {
+                var initializer = scope.ServiceProvider.GetRequiredService<DbInitializer>();
+                initializer.InitializeAsync().Wait();
+            }
+
+            base.OnStartup(e);
         }
     }
 }

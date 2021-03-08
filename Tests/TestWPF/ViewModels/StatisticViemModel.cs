@@ -5,7 +5,7 @@ using MailSender.lib.ViewModels.Base;
 
 namespace WpfMailSender.ViewModels
 {
-    class StatisticViemModel : ViewModel
+     class StatisticViemModel : ViewModel
     {
         private readonly IStatistic _Statistic;
 
