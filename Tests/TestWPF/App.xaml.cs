@@ -10,6 +10,8 @@ using MailSender.lib.Service;
 using WpfMailSender.Infastructure.Services.InMemory;
 using WpfMailSender.Models;
 using MailSender.lib;
+using Microsoft.EntityFrameworkCore;
+using WpfMailSender.Data;
 
 namespace TestWPF
 {
@@ -31,6 +33,7 @@ namespace TestWPF
 
         private static void ConfigureServices(HostBuilderContext host, IServiceCollection services)
         {
+            services.AddDbContext<MailSenderDb>(opt => opt.UseSqlServer(host.Configuration.GetConnectionString("SqlServer")));
             services.AddSingleton<MainWindowViewModel>();
             services.AddSingleton<StatisticViemModel>();
 
