@@ -6,7 +6,7 @@
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         xmlns:local="clr-namespace:TestWPF"
         xmlns:data="clr-namespace:WpfMailSender.Data" 
-        xmlns:m="clr-namespace:WpfMailSender.Models" 
+        xmlns:m="clr-namespace:MailSender.lib;assembly=MailSender.lib" 
         xmlns:contr="clr-namespace:WpfMailSender.Controls" 
         xmlns:vm="clr-namespace:WpfMailSender.ViewModels" 
         xmlns:views="clr-namespace:WpfMailSender.Views"

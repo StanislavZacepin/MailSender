@@ -4,11 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WpfMailSender.Models.Base;
+using MailSender.lib.Entities.Base;
 
 namespace WpfMailSender.Models
 {
-    class SchedulerTask : Entity
+    public class SchedulerTask : Entity
     {
         public DateTime Time { get; set; } = DateTime.Now;
         [Required]

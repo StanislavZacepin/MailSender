@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using WpfMailSender.Models.Base;
+using MailSender.lib.Entities.Base;
 
 namespace WpfMailSender.Models
 {

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using WpfMailSender.Models.Base;
+using MailSender.lib.Entities.Base;
 
 namespace WpfMailSender.Models
 {

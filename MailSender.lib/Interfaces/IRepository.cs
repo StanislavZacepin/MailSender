@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using WpfMailSender.Models.Base;
+using MailSender.lib.Entities.Base;
 
-namespace WpfMailSender.Infastructure.Services
+namespace MailSender.lib.Interfaces
 {
     public interface IRepository<T> where T : Entity
     {

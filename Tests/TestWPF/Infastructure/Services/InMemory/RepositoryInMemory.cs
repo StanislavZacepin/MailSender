@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using WpfMailSender.Models.Base;
+using MailSender.lib.Entities.Base;
+using MailSender.lib.Interfaces;
 
 namespace WpfMailSender.Infastructure.Services.InMemory
 {
-   public abstract class RepositoryInMemory<T> : IRepository<T> where T : Entity
+    public abstract class RepositoryInMemory<T> : IRepository<T> where T : Entity
     {
         private List<T> _Items;
         private int _MaxId;
