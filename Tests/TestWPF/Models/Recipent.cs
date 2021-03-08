@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using WpfMailSender.Models.Base;
 
 namespace WpfMailSender.Models
@@ -7,20 +8,19 @@ namespace WpfMailSender.Models
     public class Recipent : Entity, IDataErrorInfo
     {
         private string _Name;
-
-        public string this[string columnName] => throw new NotImplementedException();
-
+        [Required]
         public string Name 
         { 
             get => _Name;
             set
             {
-                //if (string.IsNullOrEmpty(value))
-                //     throw new ArgumentException("Не задоно имя!"); 
+                if (string.IsNullOrEmpty(value))
+                     throw new ArgumentException("Не задоно имя!"); 
 
                 _Name = value;
             }
         }
+        [Required]
         public string Address { get; set; }
 
         string IDataErrorInfo.Error => null;
