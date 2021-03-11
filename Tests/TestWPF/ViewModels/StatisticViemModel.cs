@@ -15,6 +15,7 @@ namespace WpfMailSender.ViewModels
 
         public int RecipientsCount => _Statistic.RecipientsCount;
 
+        
         public TimeSpan UpTime => _Statistic.UpTime;
         public StatisticViemModel(IStatistic Statistic) 
         {

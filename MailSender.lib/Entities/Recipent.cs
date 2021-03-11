@@ -14,8 +14,8 @@ namespace WpfMailSender.Models
             get => _Name;
             set
             {
-                if (string.IsNullOrEmpty(value))
-                     throw new ArgumentException("Не задоно имя!"); 
+                //if (string.IsNullOrEmpty(value))
+                //     throw new ArgumentException("Не задоно имя!"); 
 
                 _Name = value;
             }

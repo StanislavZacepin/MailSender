@@ -29,8 +29,8 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-
         <TextBlock Grid.Column="0" Grid.Row="0" Text="Число отправленных писем:"/>
         <TextBlock Grid.Column="1" Grid.Row="0" Text="{Binding MailsSendedCount}" VerticalAlignment="Center"/>
         
@@ -42,5 +42,8 @@
         
         <TextBlock Grid.Column="0" Grid.Row="3" Text="Время сеанса:"/>
         <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding UpTime}" VerticalAlignment="Center"/>
+
+        <TextBlock Grid.Column="0" Grid.Row="4" Text="Отчет существующих адресатов:"/>
+        <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding UpTime}" VerticalAlignment="Center"/>
     </Grid>
 </UserControl>
