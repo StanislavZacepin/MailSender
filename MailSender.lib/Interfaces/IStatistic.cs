@@ -1,5 +1,6 @@
 ﻿using System;
-using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using WpfMailSender.Models;
 
 namespace MailSender.lib.Interfaces
 {
@@ -12,6 +13,8 @@ namespace MailSender.lib.Interfaces
         int SendersCount { get; }
 
         int RecipientsCount { get; }
+
+        List<Recipent> Listrecipents { get; }
 
         TimeSpan UpTime { get; }
     }

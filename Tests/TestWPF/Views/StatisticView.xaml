@@ -44,6 +44,6 @@
         <TextBlock Grid.Column="1" Grid.Row="3" Text="{Binding UpTime}" VerticalAlignment="Center"/>
 
         <TextBlock Grid.Column="0" Grid.Row="4" Text="Отчет существующих адресатов:"/>
-        <TextBlock Grid.Column="1" Grid.Row="4" Text="{Binding UpTime}" VerticalAlignment="Center"/>
+        <ListBox Grid.Column="1" Grid.Row="4" ItemsSource="{Binding Recipents}" DisplayMemberPath="Name" VerticalAlignment="Center"/>
     </Grid>
 </UserControl>

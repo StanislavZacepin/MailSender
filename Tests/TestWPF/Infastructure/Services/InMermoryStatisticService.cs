@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using MailSender.lib.Interfaces;
 using WpfMailSender.Data;
+using WpfMailSender.Models;
 
 namespace WpfMailSender.Infastructure.Services
 {
@@ -23,6 +26,6 @@ namespace WpfMailSender.Infastructure.Services
         private readonly Stopwatch StopwatchTimer = Stopwatch.StartNew();
         public TimeSpan UpTime => StopwatchTimer.Elapsed;
 
-      
+        public List<Recipent> Listrecipents => TestData.Recipentss;
     }
 }
