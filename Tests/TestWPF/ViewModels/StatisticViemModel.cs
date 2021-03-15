@@ -2,10 +2,13 @@
 using System.Timers;
 using MailSender.lib.Interfaces;
 using MailSender.lib.ViewModels.Base;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using WpfMailSender.Models;
 
 namespace WpfMailSender.ViewModels
 {
-    class StatisticViemModel : ViewModel
+     class StatisticViemModel : ViewModel
     {
         private readonly IStatistic _Statistic;
 
@@ -14,6 +17,8 @@ namespace WpfMailSender.ViewModels
         public int SendersCount => _Statistic.SendersCount;
 
         public int RecipientsCount => _Statistic.RecipientsCount;
+
+        public List<Recipent> Recipents => _Statistic.Listrecipents;
 
         public TimeSpan UpTime => _Statistic.UpTime;
         public StatisticViemModel(IStatistic Statistic) 

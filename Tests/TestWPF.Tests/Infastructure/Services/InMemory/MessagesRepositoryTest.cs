@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using WpfMailSender.Infastructure.Services.InMemory;
+using MailSender.lib.Entities;
 using WpfMailSender.Models;
 
 namespace TestWPF.Tests.Infastructure.Services.InMemory

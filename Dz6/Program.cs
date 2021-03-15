@@ -5,6 +5,7 @@ namespace Dz6
 {
     class Program
     {
+        public static int count = 1;
         static async Task Main()
         {
            
@@ -31,14 +32,12 @@ namespace Dz6
                     for (int k = 0; k < Matr2.GetLength(0); k++)
                     {
                         Matr3[i, j] += Matr1[i, k] * Matr2[k, j];
+
                     }
                 }
             }
-            foreach (var item in Matr3)
-            {
-                Console.WriteLine(item);
-            }
-         
+            print(Matr3, $"{count}Масив перемножнаяя ");
+
             return Matr3;
         }
         static int[,] Intmasiv( int row, int column)
@@ -48,16 +47,25 @@ namespace Dz6
             for (int i = 0; i < row; i++)
             {
                 for (int j = 0; j < column; j++)
-                {
-                 
-                    matr[i, j] = matr[rnd.Next(0, 10), rnd.Next(0, 10)];
+                {              
+                    matr[i, j] = rnd.Next(0, 10);
+                   
                 }
             }
-            foreach (var item in matr)
-            {
-                Console.WriteLine(item);
-            }
+            print(matr, $"{count}Масив ");
+            count++;
             return matr;
+        }
+        static void print(int[,] matr, string text)
+        {
+            for (int i = 0; i < matr.GetLength(0); i++)
+            {
+                for (int j = 0; j < matr.GetLength(1); j++)
+                {
+                    Console.Write(text+$" {i} {j}");
+                    Console.WriteLine();
+                }
+            }
         }
     }
 

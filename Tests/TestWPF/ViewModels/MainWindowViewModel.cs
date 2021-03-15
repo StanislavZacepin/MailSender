@@ -6,12 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using MailSender.lib.Commands;
+using MailSender.lib.Entities.Base;
 using MailSender.lib.Interfaces;
 using MailSender.lib.ViewModels.Base;
 using WpfMailSender.Infastructure.Services;
 using WpfMailSender.Infastructure.Services.InMemory;
 using WpfMailSender.Models;
-using WpfMailSender.Models.Base;
 
 namespace WpfMailSender.ViewModels
 {

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using WpfMailSender.Models;
 
 namespace MailSender.lib.Interfaces
 {
@@ -15,6 +13,8 @@ namespace MailSender.lib.Interfaces
         int SendersCount { get; }
 
         int RecipientsCount { get; }
+
+        List<Recipent> Listrecipents { get; }
 
         TimeSpan UpTime { get; }
     }

@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestProject", "TestProject"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dz5", "Dz5\Dz5.csproj", "{32E4C533-7832-44A7-BAF5-C68667699AE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dz6", "Dz6\Dz6.csproj", "{23F2ADA6-661D-486C-9234-0D28E6D94F05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dz6", "Dz6\Dz6.csproj", "{23F2ADA6-661D-486C-9234-0D28E6D94F05}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

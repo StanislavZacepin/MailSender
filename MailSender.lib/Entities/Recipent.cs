@@ -1,15 +1,14 @@
 ﻿using System;
 using System.ComponentModel;
-using WpfMailSender.Models.Base;
+using System.ComponentModel.DataAnnotations;
+using MailSender.lib.Entities.Base;
 
 namespace WpfMailSender.Models
 {
     public class Recipent : Entity, IDataErrorInfo
     {
         private string _Name;
-
-        public string this[string columnName] => throw new NotImplementedException();
-
+        [Required]
         public string Name 
         { 
             get => _Name;
@@ -21,6 +20,7 @@ namespace WpfMailSender.Models
                 _Name = value;
             }
         }
+        [Required]
         public string Address { get; set; }
 
         string IDataErrorInfo.Error => null;
